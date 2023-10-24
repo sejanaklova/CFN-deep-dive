@@ -370,13 +370,18 @@ Resources:
     SecurityGroupIds:
       - !Ref MySG
     KeyName: !Ref KeyName
-    ImageId: !FindInMap 
+    # syntax Fn::FindInMap: [ MapName, TopLevelKey, SecondLevelKey ]
+    # !FindInMap followed by a list container of MapName, TopLevelKey & SecondLevelKey
+    ImageId: !FindInMap
       - AWSRegionArch2AMI
       - !Ref 'AWS::Region'
       - !FindInMap 
         - AWSInstanceType2Arch
         - !Ref InstanceType
         - Arch
+    # ImageId -> MapName= AWSRegionArch2AMI with TopLevelKey -> Pseudoparam= AWS::Region
+    # & SecondLevelKey= -> MapName=AWSInstanceType2Arch
+    # with TopLevelKey->Param=InstanceType & SecondLevelKey=Arch
 Outputs:
   InstanceId:
     Description: InstanceId of the newly created EC2 instance
