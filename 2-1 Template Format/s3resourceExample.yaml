@@ -1,0 +1,29 @@
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+    DeletionPolicy: Retain
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ccbcad12-5c4c-4041-aef9-facd1606167e
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt 
+      - S3Bucket
+      - WebsiteURL
+    Description: URL for website hosted on S3
+Metadata:
+  'AWS::CloudFormation::Designer':
+    ccbcad12-5c4c-4041-aef9-facd1606167e:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 60
+        'y': 90
+      z: 1
+      embeds: []
