@@ -1,0 +1,20 @@
+ALB with ASG Template Checklist
+	•	VPC
+	•	Public Subnet (Load Balancer, so how many?)
+	•	Autoscaling Group
+	•	Web Server(s)
+	•	Web Server SG
+	•	Internet Gateway
+	•	Route Table
+	•	ALB
+	•	ALB Listener
+	•	ALB Target Group
+	•	ALB Security Group
+	•	Launch Configuration
+	•	VPCGatewayAttachment
+	•	SubnetRouteTableAssociation
+	•	Route
+	•	Network ACL
+	•	NACL - Ingress
+	•	NACL - Egress
+	•	SubnetNetworkAclAssociation
