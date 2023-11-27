@@ -1,0 +1,18 @@
+# Root (nested)stack that creates 2 child stacks from the yaml templates
+# stored in an S3 bucket. S3 bucket's name is passed as parameter at runtime.
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  BucketName:
+    Description: Name of an existing S3 bucket created for this lab.
+    Type: String
+Resources:
+  myStack:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: !Sub [ 'https://s3.amazonaws.com/${BucketName}/s3static.yaml', BucketName: !Ref BucketName ]
+      TimeoutInMinutes: '60'
+  myStack2:
+    Type: 'AWS::CloudFormation::Stack'
+    Properties:
+      TemplateURL: !Sub [ 'https://s3.amazonaws.com/${BucketName}/noretain.yaml', BucketName: !Ref BucketName ]
+      TimeoutInMinutes: '60'
