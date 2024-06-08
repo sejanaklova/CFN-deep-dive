@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
-  ACG Hands-on Lab: Simple LAMP stack using latest Amazon Linux 2 AMI from
+  ACG Hands-on lab: Simple LAMP stack using latest Amazon Linux 2 AMI from
   parameter store behind a load balancer to allow scaling up/out.
 Parameters:
   LatestAmiId:
